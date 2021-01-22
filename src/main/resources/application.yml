@@ -1,0 +1,18 @@
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+      elastic:
+        enabled: true
+      nightingale:
+        addr: "http://127.0.0.1:2080/v1/push" #夜莺的Agent地址
+        endpoint: "192.168.1.1" #对应夜莺的endpoint, 如果不知道可以改为用nid。下个版本会自动从agent里读取endpoint
+        step: 10s #上报周期
+        append-tags: "name=value" #可配置多个，用逗号隔开
+
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,8 +1,17 @@
 # micrometer-registry-nightingale
 micrometer数据上报到滴滴夜莺(nightingale)中
+##使用方法
+使用方法，可以将micrometer-registry-nightingale-boot-starter,和micrometer-registry-nightingal安装到自己的maven仓库中，然后在项目中依赖micrometer-registry-nightingale-boot-starter即可
 
-使用方法，直接将文件放入到Spring boot项目中，然后惨遭application.yml修改配置就好了
+##参数配置
+management:
+  metrics:
+    export:
+      nightingale:
+        addr: agent地址
+        endpoint: 端点IP
+        step: 上报频率
+        append-tags: 应用附加Tag, 格式"key1=value1,key2=value2"
+        enabled: 是否启用(true|false)
 
-目前项目还比较简陋，注释，测试用例都还没有，花了一下午的时间写出来的所以还不是特别完善。有兴趣的朋友可以一起维护，看看到时候能否给micrometer项目提个PR。如果不行可以考虑做成spring-boot-starter
-
-预计下周一会更新一个版本，通过agent接口自动获取endpoint
+预计下周一会更新一个版本，通过agent提供的接口自动获取endpoint

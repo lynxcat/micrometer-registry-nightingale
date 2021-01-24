@@ -10,7 +10,7 @@
         <version>2.3.5.RELEASE</version>
     </parent>
 
-    <groupId>com.lynxcat</groupId>
+    <groupId>com.github.lynxcat</groupId>
     <artifactId>micrometer-rigistry-nightingale-boot-starter</artifactId>
     <version>1.6.3</version>
 
@@ -35,7 +35,7 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.lynxcat</groupId>
+            <groupId>com.github.lynxcat</groupId>
             <artifactId>micrometer-registry-nightingale</artifactId>
             <version>${micrometer.version}</version>
         </dependency>

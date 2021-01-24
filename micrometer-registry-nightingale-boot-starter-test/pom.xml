@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.lynxcat</groupId>
+    <groupId>com.github.lynxcat</groupId>
     <artifactId>micrometer-registry-nightingale-boot-starter-test</artifactId>
     <version>1.0.0</version>
 
@@ -33,7 +33,7 @@
         </dependency>
 
         <dependency>
-            <groupId>com.lynxcat</groupId>
+            <groupId>com.github.lynxcat</groupId>
             <artifactId>micrometer-rigistry-nightingale-boot-starter</artifactId>
             <version>1.6.3</version>
         </dependency>

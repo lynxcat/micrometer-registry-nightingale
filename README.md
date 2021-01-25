@@ -41,8 +41,10 @@ micrometer-rigistry-nightingale-boot-starter
 ```
 
 ## 其他说明  
-默认上报所有的 metrics，如果不想上报的可以通过actuator配置去掉。夜莺只支持COUNTER和GAUGE类型的metrics，对于非这两种类型的metrics全部转换为GAUGE数据上报  
-转换格式如下：
+默认上报所有的 metrics，不需要的数据通过actuator配置去掉对应端点即可。支持自定义metrics上报，项目底层依赖micrometer-core，自定义metrics请查看micrometer项目官网  
+
+夜莺只支持COUNTER和GAUGE类型的metrics，对于非这两种类型的metrics全部转换为GAUGE数据上报，数据格式的转换参照了micrometer-registry-elastic项目，不过这个项目官方也没有具体的文档
+转换格式大致如下，详细的请看源码或者看日志输出：  
 ```
 #jvm.gc.pause 在actuator
 {

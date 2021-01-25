@@ -24,7 +24,7 @@ micrometer-rigistry-nightingale
 ```
     <dependency>
         <groupId>com.github.lynxcat</groupId>
-        <artifactId>micrometer-rigistry-nightingale</artifactId>
+        <artifactId>micrometer-registry-nightingale</artifactId>
         <version>1.6.3</version>
     </dependency>
 ```
@@ -33,7 +33,7 @@ micrometer-rigistry-nightingale-boot-starter
 ```
     <dependency>
         <groupId>com.github.lynxcat</groupId>
-        <artifactId>micrometer-rigistry-nightingale-boot-starter</artifactId>
+        <artifactId>micrometer-registry-nightingale-boot-starter</artifactId>
         <version>1.6.3</version>
     </dependency>
 ```

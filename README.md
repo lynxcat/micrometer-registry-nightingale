@@ -2,7 +2,7 @@
 micrometer数据上报到滴滴夜莺(nightingale)中  
   
 ## 使用方法  
-1. 如果是spring boot项目，引入micrometer-rigistry-nightingale-boot-starter依赖  
+1. 如果是spring boot项目，引入micrometer-registry-nightingale-boot-starter依赖  
 2. 进行必要的参数配置，如果agent和jvm是在同一台机器的，只需要配置 management.metrics.export.nightingale.enabled=true，即可自动上报，其余配置信息请参考参数配置  
 
    
@@ -22,7 +22,7 @@ management:
   
 ## maven依赖
 项目已经发布到了maven仓库中，在项目中添加依赖可以直接使用   
-micrometer-rigistry-nightingale   
+micrometer-registry-nightingale   
 ```
     <dependency>
         <groupId>com.github.lynxcat</groupId>
@@ -31,7 +31,7 @@ micrometer-rigistry-nightingale
     </dependency>
 ```
    
-micrometer-rigistry-nightingale-boot-starter  
+micrometer-registry-nightingale-boot-starter  
 ```
     <dependency>
         <groupId>com.github.lynxcat</groupId>

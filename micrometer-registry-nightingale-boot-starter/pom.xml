@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.github.lynxcat</groupId>
-    <artifactId>micrometer-rigistry-nightingale-boot-starter</artifactId>
+    <artifactId>micrometer-registry-nightingale-boot-starter</artifactId>
     <version>1.6.3</version>
 
     <properties>

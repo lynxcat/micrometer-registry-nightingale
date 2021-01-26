@@ -40,6 +40,71 @@ micrometer-registry-nightingale-boot-starter
     </dependency>
 ```
 
+## 实战入门  
+1.建立一个spring boot项目，版本最好是2.3.5  
+2.pom引入必要依赖  
+  ```
+    #pom.xml
+    ....
+    <dependencies>
+        <!-- Spring boot web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.3.5.RELEASE</version>
+        </dependency>
+
+        <!-- Spring boot 监控 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>2.3.5.RELEASE</version>
+        </dependency>
+
+        <!-- lombok不是必须的，但建议引用 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.16</version>
+        </dependency>
+
+        <!-- 上报到滴滴的唯一包 -->
+        <dependency>
+            <groupId>com.github.lynxcat</groupId>
+            <artifactId>micrometer-registry-nightingale-boot-starter</artifactId>
+            <version>1.6.3</version>
+        </dependency>
+    </dependencies>
+    ....
+  ```
+3.建立application.yml，进行必须配置
+```
+    #application.yml
+    .....
+    management:
+      metrics:
+        export:
+          nightingale:
+            addr: "http://127.0.0.1:2080/v1/push" #改成你自己的agent的ip和prot
+            endpoint: "192.168.1.1"  #改成你自己的endpoint，如果不知道先登录夜莺看一下
+            step: 10s    #采集时间
+            append-tags: "key=value"  #附加的tags
+            enabled: true #是否开启，这个参数一定要配置，不然不会加载插件
+      endpoints:
+        web:
+          exposure:
+            include: "*"   #标识开启所有的spring boot监控端点，详细请参照actuator项目
+    logging:
+      level:
+        com.lynxcat: debug   #配置日志，可以看到上报日志信息
+    ....
+```
+4.建立主启动类，启动项目即可到夜莺中查看相关数据
+
+5.如果按照上面四步不成功的，可以试试看用项目下的 micrometer-registry-nightingale-boot-starter-test 项目，如果还有问题就提issue吧，看到了会处理的
+
+  
+
 ## 其他说明  
 默认上报所有的 metrics，不需要的数据通过actuator配置去掉对应端点即可。支持自定义metrics上报，项目底层依赖micrometer-core，自定义metrics请查看micrometer项目官网  
 

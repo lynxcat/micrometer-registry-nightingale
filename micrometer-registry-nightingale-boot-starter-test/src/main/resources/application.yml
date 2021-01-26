@@ -2,7 +2,7 @@ management:
   metrics:
     export:
       nightingale:
-        addr: "http://127.0.0.1:2080/v1/push"
+        addr: "http://192.168.1.1:2080/v1/push"
         endpoint: "192.168.1.1"
         step: 10s
         append-tags: "key=value"

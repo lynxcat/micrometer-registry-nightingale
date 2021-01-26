@@ -14,27 +14,31 @@
     </properties>
 
     <dependencies>
+        <!-- Spring boot web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.3.5.RELEASE</version>
         </dependency>
 
+        <!-- Spring boot 监控 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
             <version>2.3.5.RELEASE</version>
         </dependency>
 
+        <!-- 工具库 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.16</version>
         </dependency>
 
+        <!-- 上报到滴滴的唯一包 -->
         <dependency>
             <groupId>com.github.lynxcat</groupId>
-            <artifactId>micrometer-rigistry-nightingale-boot-starter</artifactId>
+            <artifactId>micrometer-registry-nightingale-boot-starter</artifactId>
             <version>1.6.3</version>
         </dependency>
     </dependencies>

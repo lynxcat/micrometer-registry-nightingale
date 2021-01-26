@@ -1,5 +1,5 @@
 # micrometer-registry-nightingale  
-micrometer数据上报到滴滴夜莺(nightingale)中  
+使用micrometer将spring boot actuator的数据上报到滴滴夜莺(nightingale)中  
   
 ## 使用方法  
 1. 如果是spring boot项目，引入micrometer-registry-nightingale-boot-starter依赖  

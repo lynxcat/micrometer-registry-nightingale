@@ -68,7 +68,7 @@ micrometer-registry-nightingale-boot-starter
             <version>1.18.16</version>
         </dependency>
 
-        <!-- 上报到滴滴的唯一包 -->
+        <!-- 上报到滴滴夜莺的依赖包 -->
         <dependency>
             <groupId>com.github.lynxcat</groupId>
             <artifactId>micrometer-registry-nightingale-boot-starter</artifactId>

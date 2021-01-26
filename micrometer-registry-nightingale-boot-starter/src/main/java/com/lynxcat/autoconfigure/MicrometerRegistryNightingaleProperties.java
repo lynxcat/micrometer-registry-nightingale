@@ -14,6 +14,15 @@ public class MicrometerRegistryNightingaleProperties {
     private String nid;
     private String appendTags;
     private Boolean enabled;
+    private String metricBlockList;
+
+    public String getMetricBlockList() {
+        return metricBlockList;
+    }
+
+    public void setMetricBlockList(String metricBlockList) {
+        this.metricBlockList = metricBlockList;
+    }
 
     public Boolean getEnabled() {
         return enabled;

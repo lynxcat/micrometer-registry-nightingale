@@ -5,8 +5,11 @@ import io.micrometer.core.instrument.push.PushRegistryConfig;
 import io.micrometer.core.instrument.step.StepRegistryConfig;
 import io.micrometer.core.lang.Nullable;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.net.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import static io.micrometer.core.instrument.config.MeterRegistryConfigValidator.*;
 import static io.micrometer.core.instrument.config.validate.PropertyValidator.*;
@@ -34,6 +37,7 @@ public interface NightingaleConfig extends StepRegistryConfig {
             e.printStackTrace();
         }
         return getString(this, "endpoint").orElse(addr.getHostAddress());
+
     }
 
     default String nid() {
@@ -46,6 +50,20 @@ public interface NightingaleConfig extends StepRegistryConfig {
 
     default String timestampFieldName() {
         return getString(this, "timestampFieldName").orElse("timestamp");
+    }
+
+    /**
+     * 用于过滤metric
+     * @return
+     */
+    default Set<String> metricBlockList(){
+        String blacklist = getString(this, "metric-block-list").orElse("");
+        if (blacklist.length() == 0){
+            return null;
+        }else {
+            String[] split = blacklist.split(",");
+            return new HashSet<>(Arrays.asList(split));
+        }
     }
 
     @Override

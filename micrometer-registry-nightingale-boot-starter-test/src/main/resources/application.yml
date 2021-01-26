@@ -7,6 +7,7 @@ management:
         step: 10s
         append-tags: "key=value"
         enabled: true
+        metric-block-list: ""
   endpoints:
     web:
       exposure:

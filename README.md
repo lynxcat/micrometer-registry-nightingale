@@ -13,11 +13,12 @@ management:
     export:  
       nightingale:  
         addr: agent地址  
-        endpoint: 端点IP，如未配置则自动获得本机IP
+        endpoint: http://127.0.0.1:2080/endpoint 端点IP，如未配置则自动获得本机IP，如果配置的是URL则自动获取URL的值，启动时获取，后续不会自动刷新
         nid: 如果配置了nid，则视为机器无关指标，endpoint配置不再生效
         step: 上报频率，默认配置10S，格式为java.time.Duration
         append-tags: 应用附加Tag, 格式"key1=value1,key2=value2"  
         enabled: 是否启用(true|false)  
+        metric-block-list: #需要屏蔽的metric
 ``` 
   
 ## maven依赖
@@ -106,7 +107,9 @@ micrometer-registry-nightingale-boot-starter
   
 
 ## 其他说明  
+
 默认上报所有的 metrics，不需要的数据通过actuator配置去掉对应端点即可。支持自定义metrics上报，项目底层依赖micrometer-core，自定义metrics请查看micrometer项目官网  
+maven中央仓库中的版本暂时不支持metric-block-list和通过url地址获取endpoint。后续如有>可能会将这个项目提交给micrometer，因此，项目版本与micrometer-core的版本保持一致，新增的这两个功能预计在1.6.4版本进行发布，时间要看micrometer-core什么时候发布了。如需要这两个功能，请直接使用源码
 
 夜莺只支持COUNTER和GAUGE类型的metrics，对于非这两种类型的metrics全部转换为GAUGE数据上报，数据格式的转换参照了micrometer-registry-elastic项目，不过这个项目官方也没有具体的文档
 转换格式大致如下，详细的请看源码或者看日志输出：  
@@ -142,5 +145,3 @@ micrometer-registry-nightingale-boot-starter
 #可以通过以下配置来查看上报的数据结构
 logging.level=com.lynxcat: debug
 ```
-  
-下版本将会支持通过agent提供的接口自动获取endpoint，用户可以将endpoint配置为ip地址

@@ -135,7 +135,7 @@ maven中央仓库中的版本暂时不支持metric-block-list和通过url地址�
   ]
 }
 
-#上到夜莺
+#上报到夜莺
 
 [{"timestamp":1611545811,"metric":"jvm.gc.pause","counterType":"GAUGE","step":10,"endpoint":"192.168.230.131","tags":"action=end-of-minor-GC,cause=Allocation-Failure","value":0},
 {"timestamp":1611545811,"metric":"jvm.gc.pause.sum","counterType":"GAUGE","step":10,"endpoint":"192.168.230.131","tags":"action=end-of-minor-GC,cause=Allocation-Failure","value":0.0},
@@ -144,4 +144,7 @@ maven中央仓库中的版本暂时不支持metric-block-list和通过url地址�
 
 #可以通过以下配置来查看上报的数据结构
 logging.level=com.lynxcat: debug
+
+#监控指标
+只要是micrometer binder的指标都支持上报，理论上来说只要有对应的micrometer binder就能被监控，并不是只有Actuator默认的哪些值，这个插件只负责数据上报，并不负责新增监控点。监控点相关的还是要看Micrometer项目。
 ```

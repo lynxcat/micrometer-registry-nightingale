@@ -28,7 +28,7 @@ micrometer-registry-nightingale
     <dependency>
         <groupId>com.github.lynxcat</groupId>
         <artifactId>micrometer-registry-nightingale</artifactId>
-        <version>1.6.3</version>
+        <version>1.6.4</version>
     </dependency>
 ```
    
@@ -37,7 +37,7 @@ micrometer-registry-nightingale-boot-starter
     <dependency>
         <groupId>com.github.lynxcat</groupId>
         <artifactId>micrometer-registry-nightingale-boot-starter</artifactId>
-        <version>1.6.3</version>
+        <version>1.6.4</version>
     </dependency>
 ```
 
@@ -73,7 +73,7 @@ micrometer-registry-nightingale-boot-starter
         <dependency>
             <groupId>com.github.lynxcat</groupId>
             <artifactId>micrometer-registry-nightingale-boot-starter</artifactId>
-            <version>1.6.3</version>
+            <version>1.6.4</version>
         </dependency>
     </dependencies>
     ....
@@ -109,7 +109,6 @@ micrometer-registry-nightingale-boot-starter
 ## 其他说明  
 
 默认上报所有的 metrics，不需要的数据通过actuator配置去掉对应端点即可。支持自定义metrics上报，项目底层依赖micrometer-core，自定义metrics请查看micrometer项目官网  
-maven中央仓库中的版本暂时不支持metric-block-list和通过url地址获取endpoint。后续如有>可能会将这个项目提交给micrometer，因此，项目版本与micrometer-core的版本保持一致，新增的这两个功能预计在1.6.4版本进行发布，时间要看micrometer-core什么时候发布了。如需要这两个功能，请直接使用源码
 
 夜莺只支持COUNTER和GAUGE类型的metrics，对于非这两种类型的metrics全部转换为GAUGE数据上报，数据格式的转换参照了micrometer-registry-elastic项目，不过这个项目官方也没有具体的文档
 转换格式大致如下，详细的请看源码或者看日志输出：  

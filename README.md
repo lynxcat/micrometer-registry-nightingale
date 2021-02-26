@@ -94,7 +94,7 @@ micrometer-registry-nightingale-boot-starter
       endpoints:
         web:
           exposure:
-            include: "*"   #标识开启所有的spring boot监控端点，详细请参照actuator项目
+            include: "*"   #标识开启所有的spring boot监控端点，详细请参照actuator项目。非必须，只是为了可以更直观的看数据。不配置也会进行数据上报的
     logging:
       level:
         com.lynxcat: debug   #配置日志，可以看到上报日志信息

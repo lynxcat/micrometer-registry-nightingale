@@ -8,6 +8,9 @@ management:
         append-tags: "key=value"
         enabled: true
         metric-block-list: ""
+        auto-registry: true
+        api-addr: "http://n9e.com"
+        user-token: "token"
   endpoints:
     web:
       exposure:

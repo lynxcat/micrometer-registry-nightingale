@@ -6,7 +6,6 @@ import io.micrometer.core.instrument.step.StepRegistryConfig;
 import io.micrometer.core.lang.Nullable;
 
 import java.net.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -52,10 +51,6 @@ public interface NightingaleConfig extends StepRegistryConfig {
         return getString(this, "timestampFieldName").orElse("timestamp");
     }
 
-    /**
-     * 用于过滤metric
-     * @return
-     */
     default Set<String> metricBlockList(){
         String blacklist = getString(this, "metric-block-list").orElse("");
         if (blacklist.length() == 0){
@@ -65,6 +60,18 @@ public interface NightingaleConfig extends StepRegistryConfig {
             return new HashSet<>(Arrays.asList(split));
         }
     }
+
+    default Boolean autoRegistry(){
+		return getBoolean(this, "auto-registry").orElse(false);
+	}
+
+	default String apiAddr() {
+		return getUrlString(this, "api-addr").orElse("");
+	}
+
+	default String userToken() {
+		return getString(this, "user-token").orElse("");
+	}
 
     @Override
     default Validated<?> validate() {

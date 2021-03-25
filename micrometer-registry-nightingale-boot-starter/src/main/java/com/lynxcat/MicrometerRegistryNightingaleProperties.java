@@ -1,4 +1,4 @@
-package com.lynxcat.autoconfigure;
+package com.lynxcat;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -15,6 +15,9 @@ public class MicrometerRegistryNightingaleProperties {
     private String appendTags;
     private Boolean enabled;
     private String metricBlockList;
+    private Boolean autoRegistry;
+    private String apiAddr;
+    private String UserToken;
 
     public String getMetricBlockList() {
         return metricBlockList;
@@ -71,4 +74,28 @@ public class MicrometerRegistryNightingaleProperties {
     public void setAppendTags(String appendTags) {
         this.appendTags = appendTags;
     }
+
+	public Boolean getAutoRegistry() {
+		return autoRegistry;
+	}
+
+	public void setAutoRegistry(Boolean autoRegistry) {
+		this.autoRegistry = autoRegistry;
+	}
+
+	public String getApiAddr() {
+		return apiAddr;
+	}
+
+	public void setApiAddr(String apiAddr) {
+		this.apiAddr = apiAddr;
+	}
+
+	public String getUserToken() {
+		return UserToken;
+	}
+
+	public void setUserToken(String userToken) {
+		UserToken = userToken;
+	}
 }

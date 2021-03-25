@@ -28,7 +28,7 @@ micrometer-registry-nightingale
     <dependency>
         <groupId>com.github.lynxcat</groupId>
         <artifactId>micrometer-registry-nightingale</artifactId>
-        <version>1.6.3</version>
+        <version>1.6.4</version>
     </dependency>
 ```
    
@@ -37,7 +37,7 @@ micrometer-registry-nightingale-boot-starter
     <dependency>
         <groupId>com.github.lynxcat</groupId>
         <artifactId>micrometer-registry-nightingale-boot-starter</artifactId>
-        <version>1.6.3</version>
+        <version>1.6.4</version>
     </dependency>
 ```
 
@@ -73,7 +73,7 @@ micrometer-registry-nightingale-boot-starter
         <dependency>
             <groupId>com.github.lynxcat</groupId>
             <artifactId>micrometer-registry-nightingale-boot-starter</artifactId>
-            <version>1.6.3</version>
+            <version>1.6.4</version>
         </dependency>
     </dependencies>
     ....
@@ -94,7 +94,7 @@ micrometer-registry-nightingale-boot-starter
       endpoints:
         web:
           exposure:
-            include: "*"   #标识开启所有的spring boot监控端点，详细请参照actuator项目
+            include: "*"   #标识开启所有的spring boot监控端点，详细请参照actuator项目。非必须，只是为了可以更直观的看数据。不配置也会进行数据上报的
     logging:
       level:
         com.lynxcat: debug   #配置日志，可以看到上报日志信息
@@ -108,8 +108,7 @@ micrometer-registry-nightingale-boot-starter
 
 ## 其他说明  
 
-默认上报所有的 metrics，不需要的数据通过actuator配置去掉对应端点即可。支持自定义metrics上报，项目底层依赖micrometer-core，自定义metrics请查看micrometer项目官网  
-maven中央仓库中的版本暂时不支持metric-block-list和通过url地址获取endpoint。后续如有>可能会将这个项目提交给micrometer，因此，项目版本与micrometer-core的版本保持一致，新增的这两个功能预计在1.6.4版本进行发布，时间要看micrometer-core什么时候发布了。如需要这两个功能，请直接使用源码
+默认上报所有的 metrics，不需要的数据通过配置metric-block-list=metric1,metric2来屏蔽。支持自定义metrics上报。项目底层依赖micrometer-core，自定义metrics请查看micrometer项目官网  
 
 夜莺只支持COUNTER和GAUGE类型的metrics，对于非这两种类型的metrics全部转换为GAUGE数据上报，数据格式的转换参照了micrometer-registry-elastic项目，不过这个项目官方也没有具体的文档
 转换格式大致如下，详细的请看源码或者看日志输出：  
@@ -134,14 +133,26 @@ maven中央仓库中的版本暂时不支持metric-block-list和通过url地址�
     }
   ]
 }
-
-#上到夜莺
-
+```
+#上报到夜莺  
+   
+```
 [{"timestamp":1611545811,"metric":"jvm.gc.pause","counterType":"GAUGE","step":10,"endpoint":"192.168.230.131","tags":"action=end-of-minor-GC,cause=Allocation-Failure","value":0},
 {"timestamp":1611545811,"metric":"jvm.gc.pause.sum","counterType":"GAUGE","step":10,"endpoint":"192.168.230.131","tags":"action=end-of-minor-GC,cause=Allocation-Failure","value":0.0},
 {"timestamp":1611545811,"metric":"jvm.gc.pause.mean","counterType":"GAUGE","step":10,"endpoint":"192.168.230.131","tags":"action=end-of-minor-GC,cause=Allocation-Failure","value":0.0},
 {"timestamp":1611545811,"metric":"jvm.gc.pause.max","counterType":"GAUGE","step":10,"endpoint":"192.168.230.131","tags":"action=end-of-minor-GC,cause=Allocation-Failure","value":0.0}]
-
-#可以通过以下配置来查看上报的数据结构
-logging.level=com.lynxcat: debug
 ```
+
+#查看上报的数据结构  
+```
+application.xml 中添加配置   
+
+logging.level:
+  com.lynxcat: debug
+```
+
+#监控指标  
+指标的收集都是micrometer这个项目的功能，可以参考官网 micrometer.io 当然也可以自定义数据进行metric。插件本身只是对收集到的指标进行上报，并未提供其他功能  
+
+#依赖说明
+项目底层依赖micrometer-core 1.6.4版本，低版本的spring-boot-starter-actuator中包含的micrometer-core版本比较低，可以在项目依赖中添加高版本micrometer-core来解决，高于1.5.6版本即可。此项目基于spring boot 2.3.x版本开发，高于这个版本不会有依赖问题

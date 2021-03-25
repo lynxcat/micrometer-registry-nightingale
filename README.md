@@ -1,5 +1,9 @@
 # micrometer-registry-nightingale  
 使用micrometer将spring boot actuator的数据上报到滴滴夜莺(nightingale)中  
+
+##  
+1.6.5更新说明  
+新增了自动注册节点功能，依赖同步为micrometer-core 1.6.5版本
   
 ## 使用方法  
 1. 如果是spring boot项目，引入micrometer-registry-nightingale-boot-starter依赖  
@@ -91,6 +95,9 @@ micrometer-registry-nightingale-boot-starter
             step: 10s    #采集时间
             append-tags: "key=value"  #附加的tags
             enabled: true #是否开启，这个参数一定要配置，不然不会加载插件
+            auto-registry: true
+            api-addr: "http://n9e.com"
+            user-token: "token"
       endpoints:
         web:
           exposure:

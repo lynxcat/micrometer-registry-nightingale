@@ -125,7 +125,7 @@ public class NightingaleConfigBuilder {
 		}
 
 		if (nid.get() == null || nid.get().equals("")) {
-			throw new Throwable("can't not get nightingale node id");
+			throw new Throwable("can't get node id for nightingale");
 		}
 
 		return nid.get();

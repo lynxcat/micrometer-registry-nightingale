@@ -29,7 +29,7 @@ management:
         append-tags: 应用附加Tag, 格式"key1=value1,key2=value2"  
         enabled: 是否启用(true|false)  
         metric-block-list: #需要屏蔽的metric
-        auto-registry: true #开启自动注册，开启后应用将会自动注册到nid节点下面，成为一个资源节点。开启此功能时需要配置nid，如果不进行配置则注册到根节点下
+        auto-registry: true #开启自动注册，开启后应用将会自动注册到nid节点下面，成为一个资源节点。开启此功能时必须要配置nid，否则会有异常
         api-addr: "http://n9e.com" #夜莺的服务器地址
         user-token: "token" #调用夜莺API的token
 ``` 

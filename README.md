@@ -105,7 +105,7 @@ micrometer-registry-nightingale-boot-starter
             append-tags: "key=value"  #附加的tags
             enabled: true #是否开启，这个参数一定要配置，不然不会加载插件
             auto-registry: true #开启自动注册，开启后应用将会自动注册到nid节点下面，成为一个资源节点
-            api-addr: "http://n9e.com" #夜莺的服务器地址
+            api-addr: "http://n9e.com" #你自己的夜莺的服务端的地址
             user-token: "token" #调用夜莺API的token
       endpoints:
         web:

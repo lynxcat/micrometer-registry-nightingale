@@ -15,7 +15,7 @@ public class MicrometerRegistryNightingaleProperties {
     private String appendTags;
     private Boolean enabled;
     private String metricBlockList;
-    private Boolean autoRegistry;
+    private Boolean autoRegistry = false;
     private String apiAddr;
     private String UserToken;
 

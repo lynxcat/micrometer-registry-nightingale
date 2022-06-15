@@ -1,3 +1,6 @@
+#重要提醒  
+只支持夜莺V3,V4版本
+
 # micrometer-registry-nightingale  
 使用micrometer将spring boot actuator的数据上报到滴滴夜莺(nightingale)中  
 
